@@ -5,7 +5,6 @@ import { useComments } from '@lib/hooks/use-comments';
 import { X } from '@lib/icons/X';
 import Portal from '@reach/portal';
 import { useEffect, useState } from 'react';
-import SortCommentsSelect from './SortCommentsSelect';
 
 function removeHash(): void {
   let scrollV, scrollH;

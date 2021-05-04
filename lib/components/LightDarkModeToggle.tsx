@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import cn from 'classnames';
 
 const LightDarkModeToggle = (): JSX.Element | null => {
   const [isMounted, setIsMounted] = useState(false);

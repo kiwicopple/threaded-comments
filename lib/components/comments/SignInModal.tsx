@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import validateEmail from '@lib/utils/regex/validateEmailRegex';
 import supabase from '@lib/utils/initSupabase';
-import { useUser } from '@lib/hooks/use-user';
 import Github from '@lib/icons/Github';
 import { useModal } from '@lib/hooks/use-modal';
 

@@ -42,6 +42,9 @@ const CommentsList = ({ initialData = null, useInfiniteScroll = false }: Props):
   const contentRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
+  const showEndMessage = !error && (isReachingEnd || remainingCount === 0) && count !== 0;
+  const showLoadMore = !isReachingEnd && remainingCount;
+
   function handleScroll(): void {
     if (wrapperRef.current && wrapperRef.current.scrollTop === 0) {
       setIsScrolled(false);
@@ -109,7 +112,7 @@ const CommentsList = ({ initialData = null, useInfiniteScroll = false }: Props):
             )}
             {isLoadingMore && <CommentSkeleton />}
 
-            {!isReachingEnd && (
+            {showLoadMore && (
               <button
                 onClick={() => loadMore()}
                 className="text-sm border-none hover:underline focus:underline focus-ring font-semibold text-gray-600 dark:text-gray-400"
@@ -120,7 +123,7 @@ const CommentsList = ({ initialData = null, useInfiniteScroll = false }: Props):
               </button>
             )}
 
-            {!error && isReachingEnd && count !== 0 && (
+            {showEndMessage && (
               <div className="my-6 text-gray-700 dark:text-gray-200">
                 You&apos;ve reached the end.
               </div>
